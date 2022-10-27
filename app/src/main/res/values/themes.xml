@@ -18,4 +18,11 @@
         <item name="colorSecondary">#3297ca</item>
 
     </style>
+    
+    <style name="Dialoge">
+        <item name="android:windowBackground"></item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowMinWidthMajor">80%</item>
+        <item name="windowActionBar">false</item>
+    </style>
 </resources>
