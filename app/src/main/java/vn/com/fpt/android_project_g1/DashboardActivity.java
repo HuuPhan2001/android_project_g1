@@ -132,6 +132,8 @@ public class DashboardActivity extends AppCompatActivity {
 
     private void GameWong(){
         Intent intent = new Intent(DashboardActivity.this,WonActivity.class);
+        intent.putExtra("correct", correctCount);
+        intent.putExtra("wrong", wrongCount);
         startActivity(intent);
     }
     public void enableButton(){
