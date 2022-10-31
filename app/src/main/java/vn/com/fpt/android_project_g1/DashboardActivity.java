@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.Collections;
@@ -27,6 +28,9 @@ public class DashboardActivity extends AppCompatActivity {
     int index = 0;
     TextView card_question, optiona, optionb, optionc, optiond;
     CardView cardOA, cardOB, cardOC, cardOD;
+    int correctCount =0;
+    int wrongCount =0;
+    LinearLayout nextBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +43,7 @@ public class DashboardActivity extends AppCompatActivity {
         Collections.shuffle(allQuestionList);
         questionModel = list.get(index);
 
+        nextBtn.setClickable(false);
         setAllData();
 
         countDownTimer=new CountDownTimer( 20000,1000) {
@@ -81,6 +86,8 @@ public class DashboardActivity extends AppCompatActivity {
         cardOB = findViewById(R.id.cardB);
         cardOC = findViewById(R.id.cardC);
         cardOD = findViewById(R.id.cardD);
+
+        nextBtn = findViewById(R.id.nextBtn);
     }
 
     private void setAllData() {
@@ -89,5 +96,127 @@ public class DashboardActivity extends AppCompatActivity {
         optionb.setText(questionModel.getoB());
         optionc.setText(questionModel.getoC());
         optiond.setText(questionModel.getoD());
+    }
+
+    public  void Correct(CardView card){
+        card.setBackgroundColor(getResources().getColor(R.color.green));
+        nextBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                correctCount++;
+                index++;
+                questionModel = list.get(index);
+                setAllData();
+            }
+        });
+
+    }
+    public  void Wrong(CardView card){
+        card.setCardBackgroundColor(getResources().getColor(R.color.red));
+        nextBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                wrongCount++;
+                if(index<list.size()-1){
+                    index++;
+                    questionModel = list.get(index);
+                    setAllData();
+                    resetColor();
+                }else{
+                    GameWong();
+                }
+            }
+        });
+
+    }
+
+    private void GameWong(){
+        Intent intent = new Intent(DashboardActivity.this,WonActivity.class);
+        startActivity(intent);
+    }
+    public void enableButton(){
+        cardOA.setClickable(true);
+        cardOB.setClickable(true);
+        cardOC.setClickable(true);
+        cardOD.setClickable(true);
+
+    }
+    public void disableButton(){
+        cardOA.setClickable(false);
+        cardOB.setClickable(false);
+        cardOC.setClickable(false);
+        cardOD.setClickable(false);
+
+    }
+
+    public void resetColor(){
+        cardOA.setBackgroundColor(getResources().getColor(R.color.white));
+        cardOB.setBackgroundColor(getResources().getColor(R.color.white));
+        cardOC.setBackgroundColor(getResources().getColor(R.color.white));
+        cardOD.setBackgroundColor(getResources().getColor(R.color.white));
+    }
+
+    public void optionAClick(View view) {
+        disableButton();
+        nextBtn.setClickable(true);
+        if(questionModel.getoA().equals(questionModel.getAns())){
+            cardOA.setCardBackgroundColor(getResources().getColor(R.color.green));
+
+            if(index < list.size()-1){
+                Correct(cardOA);
+            }else{
+                GameWong();
+            }
+        }else{
+            Wrong(cardOA);
+        }
+    }
+    public void optionBClick(View view) {
+
+        disableButton();
+        nextBtn.setClickable(true);
+        if(questionModel.getoB().equals(questionModel.getAns())){
+            cardOB.setCardBackgroundColor(getResources().getColor(R.color.green));
+
+            if(index < list.size()-1){
+                Correct(cardOB);
+            }else{
+                GameWong();
+            }
+        }else{
+            Wrong(cardOB);
+        }
+    }
+    public void optionCClick(View view) {
+
+        disableButton();
+        nextBtn.setClickable(true);
+        if(questionModel.getoC().equals(questionModel.getAns())){
+            cardOC.setCardBackgroundColor(getResources().getColor(R.color.green));
+
+            if(index < list.size()-1){
+                Correct(cardOC);
+            }else{
+                GameWong();
+            }
+        }else{
+            Wrong(cardOC);
+        }
+    }
+    public void optionDClick(View view) {
+
+        disableButton();
+        nextBtn.setClickable(true);
+        if(questionModel.getoD().equals(questionModel.getAns())){
+            cardOD.setCardBackgroundColor(getResources().getColor(R.color.green));
+
+            if(index < list.size()-1){
+                Correct(cardOD);
+            }else{
+                GameWong();
+            }
+        }else{
+            Wrong(cardOD);
+        }
     }
 }

@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="primary_quiz">#003366</color>
     <color name="next_btn">#3297ca</color>
+    <color name="green">#66cc99</color>
+    <color name="red">#ff6666</color>
 </resources>
