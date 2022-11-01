@@ -106,7 +106,9 @@ public class DashboardActivity extends AppCompatActivity {
                 correctCount++;
                 index++;
                 questionModel = list.get(index);
+                resetColor();
                 setAllData();
+                enableButton();
             }
         });
 
@@ -122,6 +124,7 @@ public class DashboardActivity extends AppCompatActivity {
                     questionModel = list.get(index);
                     setAllData();
                     resetColor();
+                    enableButton();
                 }else{
                     GameWong();
                 }
