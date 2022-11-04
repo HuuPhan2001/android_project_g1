@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "107301953856",
+    "project_id": "quizapp-fpt-g1",
+    "storage_bucket": "quizapp-fpt-g1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:107301953856:android:b85dc1e59baff3a6d6daa5",
+        "android_client_info": {
+          "package_name": "vn.com.fpt.android_project_g1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "107301953856-j3tk3jeub0cm65sefbqj6tl76l0h5omb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtlwOEEIUs3SxyZiP_6-ZL2SE8EtY3nXo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "107301953856-j3tk3jeub0cm65sefbqj6tl76l0h5omb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -9,6 +9,10 @@ public class QuestionModel {
     String oD;
     String ans;
 
+    public QuestionModel(){
+
+    }
+
     public QuestionModel(String question, String oA, String oB, String oC, String oD, String ans) {
         Question = question;
         this.oA = oA;
