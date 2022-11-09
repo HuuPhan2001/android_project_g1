@@ -122,8 +122,8 @@ public class DashboardActivity extends AppCompatActivity {
                 if(index<list.size()-1){
                     index++;
                     questionModel = list.get(index);
-                    setAllData();
                     resetColor();
+                    setAllData();
                     enableButton();
                 }else{
                     GameWong();
@@ -193,7 +193,6 @@ public class DashboardActivity extends AppCompatActivity {
         }
     }
     public void optionCClick(View view) {
-
         disableButton();
         nextBtn.setClickable(true);
         if(questionModel.getoC().equals(questionModel.getAns())){
@@ -209,7 +208,6 @@ public class DashboardActivity extends AppCompatActivity {
         }
     }
     public void optionDClick(View view) {
-
         disableButton();
         nextBtn.setClickable(true);
         if(questionModel.getoD().equals(questionModel.getAns())){
